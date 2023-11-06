@@ -1,0 +1,39 @@
+(venv) PS F:\University\ААА\Python> python -m doctest -o NORMALIZE_WHITESPACE -v issue_1_test.py
+Trying:
+    encode('SOS')
+Expecting:       
+    '... --- ...'
+ok
+Trying:
+    encode('HELLO WORLD')
+Expecting:
+    '.... . .-.. .-.. ---   .-- --- .-. .-.. -..'
+ok
+Trying:
+    encode('123') #Тут поставил два лишних пробела для наглядности работы NORMALIZE_WHITESPACE
+Expecting:
+    '.----   ..--- ...--'
+ok
+Trying:
+    encode('')
+Expecting:
+    ''
+ok
+Trying:
+    encode(123)
+Expecting:
+    Traceback (most recent call last):
+    TypeError: 'int' object is not iterable
+ok
+Trying:
+    encode('VERY LONG...') # doctest: +ELLIPSIS
+Expecting:
+    '...- ... ...'
+ok
+1 items had no tests:
+    issue_1_test
+1 items passed all tests:
+   6 tests in issue_1_test.encode
+6 tests in 2 items.
+6 passed and 0 failed.
+Test passed.

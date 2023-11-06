@@ -1,0 +1,11 @@
+(venv) PS F:\University\ААА\Python>  python -m pytest -q issue_5_test.py --cov=what_is_year_now         
+...                                                                                                                                                                                                                                                                                                          [100%]
+
+---------- coverage: platform win32, python 3.11.3-final-0 -----------
+Name                  Stmts   Miss  Cover                             
+-----------------------------------------                             
+what_is_year_now.py      19      0   100%                             
+-----------------------------------------                             
+TOTAL                    19      0   100%                             
+                                                                      
+3 passed in 104.77s (0:01:44)      
