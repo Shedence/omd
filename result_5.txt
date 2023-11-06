@@ -1,3 +1,5 @@
+Покрытие тестами:
+
 (venv) PS F:\University\ААА\Python>  python -m pytest -q issue_5_test.py --cov=what_is_year_now         
 ...                                                                                                                                                                                                                                                                                                          [100%]
 
@@ -7,5 +9,52 @@ Name                  Stmts   Miss  Cover
 what_is_year_now.py      19      0   100%                             
 -----------------------------------------                             
 TOTAL                    19      0   100%                             
+
+Сами тесты:
                                                                       
-3 passed in 104.77s (0:01:44)      
+3 passed in 104.77s (0:01:44)      =============================================================================================================================================== test session starts ===============================================================================================================================================
+platform win32 -- Python 3.11.3, pytest-7.4.3, pluggy-1.3.0 -- F:\University\ААА\Python\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: F:\University\ААА\Python
+plugins: cov-4.1.0
+collected 3 items                                                                                                                                                                                                                                                                                                   
+
+issue_5_test.py::test_get_year_format_ymd FAILED
+issue_5_test.py::test_get_year_format_dmy PASSED
+issue_5_test.py::test_get_exception PASSED
+
+==================================================================================================================================================== FAILURES ===================================================================================================================================================== 
+____________________________________________________________________________________________________________________________________________ test_get_year_format_ymd _____________________________________________________________________________________________________________________________________________ 
+
+    def test_get_year_format_ymd():
+        with patch('what_is_year_now.json.load') as mocked:
+            mocked.return_value = {'currentDateTime': '2023-11-06'}
+>           assert what_is_year_now() == 2023
+
+issue_5_test.py:8:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+what_is_year_now.py:24: in what_is_year_now
+    with urllib.request.urlopen(API_URL) as resp:
+F:\Program_Files\Python\Lib\urllib\request.py:216: in urlopen
+    return opener.open(url, data, timeout)
+F:\Program_Files\Python\Lib\urllib\request.py:525: in open
+    response = meth(req, response)
+F:\Program_Files\Python\Lib\urllib\request.py:634: in http_response
+    response = self.parent.error(
+F:\Program_Files\Python\Lib\urllib\request.py:563: in error
+    return self._call_chain(*args)
+F:\Program_Files\Python\Lib\urllib\request.py:496: in _call_chain
+    result = func(*args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <urllib.request.HTTPDefaultErrorHandler object at 0x000002215DD29F10>, req = <urllib.request.Request object at 0x000002215DD2A310>, fp = <http.client.HTTPResponse object at 0x000002215D508CD0>, code = 503, msg = 'Service Unavailable', hdrs = <http.client.HTTPMessage object at 0x000002215DD2AAD0>     
+
+    def http_error_default(self, req, fp, code, msg, hdrs):
+>       raise HTTPError(req.full_url, code, msg, hdrs, fp)
+E       urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+
+F:\Program_Files\Python\Lib\urllib\request.py:643: HTTPError
+============================================================================================================================================= short test summary info ============================================================================================================================================= 
+FAILED issue_5_test.py::test_get_year_format_ymd - urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+===================================================================================================================================== 1 failed, 2 passed in 73.51s (0:01:13) ====================================================================================================================================== 
+(venv) PS F:\University\ААА\Python> 
