@@ -1,0 +1,15 @@
+F:\University\ААА\Python\venv\Scripts\python.exe "F:/Program_Files/PyCharm Community Edition 2023.1.2/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --path F:\University\ААА\Python\issue_3_test.py 
+Testing started at 15:37 ...
+Launching pytest with arguments F:\University\ААА\Python\issue_3_test.py --no-header --no-summary -q in F:\University\ААА\Python
+
+============================= test session starts =============================
+collecting ... collected 4 items
+
+issue_3_test.py::TestFitTransform::test_animals PASSED                   [ 25%]
+issue_3_test.py::TestFitTransform::test_catch_exception PASSED           [ 50%]
+issue_3_test.py::TestFitTransform::test_drinks PASSED                    [ 75%]
+issue_3_test.py::TestFitTransform::test_minidrinks PASSED                [100%]
+
+============================== 4 passed in 0.01s ==============================
+
+Process finished with exit code 0
